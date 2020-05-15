@@ -4,6 +4,17 @@
     https://api.github.com/users/<your name>
 */
 
+axios.get('https://api.github.com/users/Zack-Ballenger')
+.then((response) => {
+  component(response.data);
+  return axios.get('https://api.github.com/users/Zack-Ballenger/followers');
+})
+.then((response) => {
+  response.data.map((user) => {
+    component(user);
+  });
+});
+
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -16,7 +27,6 @@
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
 */
-
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -50,6 +60,12 @@ const followersArray = [];
     </div>
 */
 
+function component(obj) {
+  const cont = document.querySelector('.cards');
+  
+}
+
+
 /*
   List of LS Instructors Github username's:
     tetondan
@@ -58,3 +74,8 @@ const followersArray = [];
     luishrd
     bigknell
 */
+
+
+// Step 1
+
+
